@@ -18,6 +18,20 @@ h1, p, a {
     font-size: 3rem;
     font-family: 'Carrois Gothic SC', sans-serif;
 }
+.contenido2 {
+    max-width: 1200px;
+    margin: 5rem auto 0 auto;
+    color: white;
+    font-size: 3rem;
+    font-family: 'Carrois Gothic SC', sans-serif;
+}
+.contenido3 {
+    max-width: 1200px;
+    margin: 5rem auto 0 auto;
+    color: white;
+    font-size: 3rem;
+    font-family: 'Carrois Gothic SC', sans-serif;
+}
 h1 {
     font-size: 4rem;
 }
