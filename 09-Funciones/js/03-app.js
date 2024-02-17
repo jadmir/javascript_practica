@@ -1,0 +1,5 @@
+//alert
+
+//prompt
+
+//parseInt
