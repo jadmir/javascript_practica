@@ -12,6 +12,13 @@ function cargarEventListeners() {
 
     // elimina cursos de carrito
     carrito.addEventListener('click', eliminarCurso)
+
+    //Vaciar el carrito
+    vaciarCarritoBtn.addEventListener('click', () => {
+        articulosCarrito = [] //reseteamos el carrito
+
+        limpiarHTML() //elminamos todo el html
+    })
 }
 
 //Funciones
@@ -30,10 +37,8 @@ function eliminarCurso(e) {
     if(e.target.classList.contains('borrar-curso') ) {
          // e.target.parentElement.parentElement.remove();
          const cursoId = e.target.getAttribute('data-id')
-         
          // Eliminar del arreglo del carrito
          articulosCarrito = articulosCarrito.filter(curso => curso.id !== cursoId);
-
          carritoHTML();
     }
 }
