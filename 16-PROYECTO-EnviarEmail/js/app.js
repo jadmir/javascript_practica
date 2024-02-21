@@ -11,15 +11,22 @@ document.addEventListener('DOMContentLoaded' , function() {
   imputMensaje.addEventListener('blur', validar)
    
   function validar(e) {
-    console.log(e.target.parentElement.nextElementSibling)
     if(e.target.value.trim() === '') {
       MostrarAlerta(`El campo ${e.target.id} es obligatorio`, e.target.parentElement)
-    } else {
-      console.log('si ghay algo')
-    }
+      return
+    } 
+
+    limpiarAlerta(e.target.parentElement)
   }
 
   function MostrarAlerta(mensaje, referencia) {
+    //comprobar si ya existe una alerta
+    const alerta = referencia.querySelector('.bg-red-600')
+    if(alerta) {
+      alerta.remove();
+    }
+
+
     //generar una alerta de html
     const error = document.createElement('P')
     error.textContent = mensaje
@@ -27,6 +34,14 @@ document.addEventListener('DOMContentLoaded' , function() {
     
     //Inyectar el error al forumlario
     referencia.appendChild(error)
+  }
+
+  function limpiarAlerta(referencia) {
+    console.log('desde limpiar alerta')
+    const alerta = referencia.querySelector('.bg-red-600')
+    if(alerta) {
+      alerta.remove();
+    }
   }
 
 })
