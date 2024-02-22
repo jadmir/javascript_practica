@@ -114,7 +114,21 @@ function llenarSelect() {
 function filtarAuto() {
   const resultado = autos.filter(filtrarMarca).filter(filtrarYear).filter(filtrarMinimo).filter(filtrarmaximo).filter(filtrarPuertas).filter(filtrarTransmision).filter(filtrarColor)
   //console.log(resultado)
-  mostrarAutos(resultado)
+
+  if(resultado.length) {
+    mostrarAutos(resultado)
+  } else {
+    noResultado()
+  }
+}
+
+function noResultado() {
+  limpiarHTML()
+
+  const noResultado = document.createElement('DIV')
+  noResultado.classList.add('alerta', 'error')
+  noResultado.textContent = 'No hay resultados, Intenta con otros terminos de busqueda'
+  resultado.appendChild(noResultado)
 }
 
 function filtrarMarca(auto) {
