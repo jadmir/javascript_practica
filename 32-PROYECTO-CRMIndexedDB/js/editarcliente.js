@@ -1,6 +1,6 @@
 (function() {
   let DB;
-  let idCLiente;
+  let idCliente;
 
   const nombreInput = document.querySelector('#nombre')
   const emailInput = document.querySelector('#email')
@@ -41,7 +41,7 @@
       email: emailInput.value,
       telefono: telefonoInput.value,
       empresa: empresaInput.value,
-      id: idCLiente
+      id: Number(idCliente)
     }
 
     const transaction = DB.transaction(['crm'], 'readwrite')
@@ -50,11 +50,15 @@
     objectStore.put(clienteActualizado)
 
     transaction.oncomplete = function() {
-      console.log('editado correctamente')
+      imprimirAlerta('editado correctamente')
+
+      setTimeout(() => {
+        window.location.href = 'index.html'
+      }, 3000);
     }
 
     transaction.onerror = function() {
-      console.log('huboi un error')
+      imprimirAlerta('Hubo un error', 'error')
     }
   }
 

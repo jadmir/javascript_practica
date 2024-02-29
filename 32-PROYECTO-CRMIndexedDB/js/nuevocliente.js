@@ -38,7 +38,7 @@
   }
 
   function crearNuevoCliente(cliente) {
-    const transaction = DB.transaction(['crm'], 'readwrite')
+    const transaction = DB.transaction(['crm'], 'readwrite');
 
     const objectStore = transaction.objectStore('crm')
 
